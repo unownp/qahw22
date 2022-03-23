@@ -9,6 +9,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
@@ -56,12 +57,26 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         options.setAppPackage("org.wikipedia.alpha");
         options.setAppActivity("org.wikipedia.main.MainActivity");
 
-
-
-
-            return new RemoteWebDriver( getSelenoidUrl(), options);
-
-
-
+        return new RemoteWebDriver(getSelenoidUrl(), options);
     }
+
+
+/* @Override
+ @CheckReturnValue
+ @Nonnull
+ public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
+
+     desiredCapabilities.setCapability("platformName", "Android");
+     desiredCapabilities.setCapability("deviceName", "android");
+     desiredCapabilities.setCapability("version", "10.0");
+     desiredCapabilities.setCapability("locale", "en");
+     desiredCapabilities.setCapability("language", "en");
+     desiredCapabilities.setCapability("enableVNC", true);
+     desiredCapabilities.setCapability("enableVideo", true);
+     desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
+     desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
+     desiredCapabilities.setCapability("app", getApkUrl());
+
+     return new AndroidDriver(getSelenoidUrl(), desiredCapabilities);
+ }*/
 }
