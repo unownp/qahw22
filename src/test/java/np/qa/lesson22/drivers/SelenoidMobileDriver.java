@@ -58,11 +58,9 @@ public class SelenoidMobileDriver implements WebDriverProvider {
 
 
 
-        try {
-            return new RemoteWebDriver( URI.create("http://selenoid:4444/wd/hub").toURL(), options);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+
+            return new RemoteWebDriver( getSelenoidUrl(), options);
+
 
 
     }
