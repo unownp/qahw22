@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 
 public class SelenoidMobileDriver implements WebDriverProvider {
@@ -56,7 +57,13 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         options.setAppActivity("org.wikipedia.main.MainActivity");
 
 
-       return new AndroidDriver(getSelenoidUrl(), options);
+
+        try {
+            return new RemoteWebDriver( URI.create("http://selenoid:4444/wd/hub").toURL(), options);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 }

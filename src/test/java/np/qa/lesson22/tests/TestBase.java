@@ -60,9 +60,10 @@ public class TestBase {
         if(deviceHost.equals("browserstack")){
             Attach.videoBrowserStack(sessionId);
         }
-        else if(deviceHost.equals("selenoid")){
+        //предположительно из удаленного селеноидовского аппиума видео тоже не получить
+        /*    else if(deviceHost.equals("selenoid")){
             Attach.videoSelenoid(sessionId);
-        }
+        }*/
 
     }
 }
