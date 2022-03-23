@@ -56,7 +56,7 @@ public class SelenoidMobileDriver implements WebDriverProvider {
         options.setLanguage("en");
         options.setAppPackage("org.wikipedia.alpha");
         options.setAppActivity("org.wikipedia.main.MainActivity");
-
+        options.setApp(getApkUrl());
         return new RemoteWebDriver(getSelenoidUrl(), options);
     }
 
