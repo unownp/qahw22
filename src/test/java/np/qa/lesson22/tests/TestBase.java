@@ -28,6 +28,7 @@ public class TestBase {
         }
         else if(deviceHost.equals("selenoid")){
             Configuration.browser = SelenoidMobileDriver.class.getName();
+            Configuration.remote=SelenoidMobileDriver.selenoid.hubUrl();
         }
         else if(deviceHost.equals("realDevice")){
             Configuration.browser = RealDeviceDriver.class.getName();
